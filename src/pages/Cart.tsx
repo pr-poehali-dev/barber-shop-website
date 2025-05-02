@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -39,6 +39,7 @@ interface CartItem {
 }
 
 const Cart = () => {
+  const navigate = useNavigate();
   // В реальном приложении эти данные будут храниться в Redux или Context
   const [cartItems, setCartItems] = useState<CartItem[]>([
     { product: productData[0], quantity: 2 },
@@ -81,6 +82,11 @@ const Cart = () => {
     } else {
       alert("Недействительный промокод");
     }
+  };
+  
+  const handleCheckout = () => {
+    // В реальном приложении здесь можно было бы сохранить данные корзины в Redux/Context
+    navigate("/checkout");
   };
   
   // Если корзина пуста
@@ -259,7 +265,11 @@ const Cart = () => {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" size="lg">
+                  <Button 
+                    className="w-full" 
+                    size="lg"
+                    onClick={handleCheckout}
+                  >
                     <CreditCard className="h-4 w-4 mr-2" />
                     Оформить заказ
                   </Button>

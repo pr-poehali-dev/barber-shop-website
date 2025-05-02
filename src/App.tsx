@@ -11,6 +11,8 @@ import Services from "./pages/Services";
 import Booking from "./pages/Booking";
 import BookingSuccess from "./pages/BookingSuccess";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Register from "./pages/auth/Register";
@@ -36,6 +38,8 @@ const App = () => (
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contacts />} />
           
