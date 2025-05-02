@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import Services from "./pages/Services";
+import Booking from "./pages/Booking";
+import BookingSuccess from "./pages/BookingSuccess";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
 import Contacts from "./pages/Contacts";
@@ -14,6 +17,7 @@ import Register from "./pages/auth/Register";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/admin/Dashboard";
 import Admin from "./pages/admin/Admin";
+import AppointmentsList from "./pages/admin/AppointmentsList";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +29,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/services" element={<NotFound />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/booking/:serviceId?" element={<Booking />} />
+          <Route path="/booking-success" element={<BookingSuccess />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/register" element={<Register />} />
@@ -36,9 +42,9 @@ const App = () => (
           {/* Админ роуты */}
           <Route path="/admin" element={<Admin />}>
             <Route index element={<AdminDashboard />} />
+            <Route path="appointments" element={<AppointmentsList />} />
             <Route path="products" element={<NotFound />} />
             <Route path="orders" element={<NotFound />} />
-            <Route path="appointments" element={<NotFound />} />
             <Route path="clients" element={<NotFound />} />
             <Route path="settings" element={<NotFound />} />
           </Route>
